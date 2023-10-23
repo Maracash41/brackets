@@ -1,6 +1,6 @@
 module.exports = function check(str, bracketsConfig) {
-    const OPEN = Array.from(bracketsConfig.slice().map(item => item.slice()[0]));
-    const CLOSED = Object.fromEntries(bracketsConfig.slice().map(item => item.slice().reverse()));
+    const OPEN = Array.from(bracketsConfig.map(item => item.slice()[0]));
+    const CLOSED = Object.fromEntries(bracketsConfig.map(([key, value]) => [value, key]));
       let stack = [];
       for (let i = 0; i < str.length; i++) {
           let cur = str[i];
